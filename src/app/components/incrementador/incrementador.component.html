@@ -1,0 +1,22 @@
+<h3>{{leyenda}} {{progreso}}</h3>
+<div class="input-group">
+  <span class="input-group-btn">
+    <button class="btn btn-primary" type="button"
+    (click)="changeProgress(-5)">
+      <i class="mdi mdi-minus"></i>
+    </button>
+  </span>
+<!-- Para que el ngModel funcione hay que importar: FormsModule (en imports)
+y además el input necesita el name -->
+  <input type="number" class="form-control" min="1" max="100" id="miInput"
+    name="progreso"
+    [(ngModel)]="progreso"
+    (ngModelChange)="onChange($event)"
+    #txtProgress>
+  <span class="input-group-btn">
+    <button class="btn btn-primary" type="button"
+      (click)="changeProgress(5)">
+        <i class="mdi mdi-plus"></i>
+    </button>
+  </span>
+</div>

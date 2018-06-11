@@ -1,0 +1,11 @@
+<!-- Grafica de donna de https://valor-software.com/ng2-charts/ -->
+<div style="display: block">
+  <h2 *ngIf="leyenda">{{leyenda}}</h2>
+    <canvas baseChart
+      [data]="data"
+      [labels]="labels"
+      [chartType]="chartType"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)">
+    </canvas>
+  </div>

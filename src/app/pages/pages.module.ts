@@ -1,16 +1,25 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-//Components
-import { PagesComponent } from "./pages.component";
-import { DashboardComponent } from "./dashboard/dashboard.component";
-import { Graficas1Component } from "./graficas1/graficas1.component";
-import { ProgressComponent } from "./progress/progress.component";
+// Components
+import { PagesComponent } from './pages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { Graficas1Component } from './graficas1/graficas1.component';
+import { ProgressComponent } from './progress/progress.component';
 
-//Modulos
-import { SharedModule } from "../shared/shared.module";
+// Modulos
+import { SharedModule } from '../shared/shared.module';
+import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
+import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
 
-//Rutas
-import { PAGES_ROUTES } from "./pages.routes";
+// Rutas
+import { PAGES_ROUTES } from './pages.routes';
+
+// Formularios
+import { FormsModule } from '@angular/forms';
+
+// ng2-charts
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -18,16 +27,20 @@ import { PAGES_ROUTES } from "./pages.routes";
     DashboardComponent,
     Graficas1Component,
     ProgressComponent,
+    IncrementadorComponent,
+    GraficoDonaComponent,
   ],
   exports: [
     PagesComponent,
     DashboardComponent,
     Graficas1Component,
-    ProgressComponent,
   ],
   imports: [
+    CommonModule, // como esto es un modulo personalizado, esto es necesario para utilizar directivas tipos ngfor ngif...
     SharedModule,
-    PAGES_ROUTES
+    PAGES_ROUTES,
+    FormsModule,
+    ChartsModule,
   ]
 })
 
