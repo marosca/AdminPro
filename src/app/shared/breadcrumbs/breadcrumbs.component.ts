@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivationEnd } from '@angular/router';
+import { Router, ActivationEnd, ActivatedRoute } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { Title, Meta, MetaDefinition } from '@angular/platform-browser';
 
@@ -12,7 +12,8 @@ export class BreadcrumbsComponent implements OnInit {
   titulo: string;
   constructor(private router: Router,
               private title: Title,
-              private meta: Meta) {
+              private meta: Meta,
+              private activatedRoute: ActivatedRoute) {
     this.getDataRoute()
       .subscribe( data => {
         this.titulo = data.titulo;
@@ -34,6 +35,12 @@ export class BreadcrumbsComponent implements OnInit {
       .filter( ev => ev instanceof ActivationEnd)
       .filter( (ev: ActivationEnd) => !ev.snapshot.firstChild)
       .map( (ev: ActivationEnd) => ev.snapshot.data);
+  }
+
+  goToLogin() {
+    this.router.navigate(['login'])
+      .then(data => console.log('navegando', data));
+    console.log(this.router);
   }
 
 }

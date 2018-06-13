@@ -8,12 +8,13 @@
     <div class="col-md-7 align-self-center">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a routerLink="/dashboard">Home</a>
+                <a [routerLink]="['/dashboard']">Home</a>
             </li>
             <li class="breadcrumb-item">pages</li>
             <li class="breadcrumb-item active">{{ titulo }}</li>
         </ol>
     </div>
+    <button (click)="goToLogin()">Ir a login</button>
 </div>
 <!-- ============================================================== -->
 <!-- End Bread crumb and right sidebar toggle -->
