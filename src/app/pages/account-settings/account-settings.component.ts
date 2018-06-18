@@ -22,7 +22,7 @@ export class AccountSettingsComponent implements OnInit {
 
   aplicarCheck(link) {
     link.classList.add('working');
-    const links: Array<HTMLElement> = Array.from(document.getElementsByClassName('selector'));
+    const links: Array<Element> = Array.from(document.getElementsByClassName('selector'));
     links.forEach((el) => el.classList.remove('working'));
   }
 

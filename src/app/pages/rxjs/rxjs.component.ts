@@ -80,7 +80,7 @@ export class RxjsComponent implements OnInit, OnDestroy {
     });
 
     return observable
-      .map( (response) => response.valor)
+      .map( (response: any) => response.valor)
       .filter( (el) => !(el % 2));
   }
 
