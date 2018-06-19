@@ -8,7 +8,8 @@ export class LoginGuardGuard implements CanActivate {
 
   constructor(
     public _usuarioService: UsuarioService,
-    public router: Router) { }
+    public router: Router,
+    public activatedRoute: ActivatedRoute) { }
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {

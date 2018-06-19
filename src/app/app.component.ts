@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SettingsService } from './services/service.index';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { SettingsService } from './services/service.index';
 export class AppComponent {
   title = 'app';
 
-  constructor(public _ajustesSetting: SettingsService) {
-
+  constructor(public _ajustesSetting: SettingsService, public router: Router) {
+    this.router.onSameUrlNavigation = 'reload';
   }
 }

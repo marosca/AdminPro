@@ -4,8 +4,8 @@
 <section id="wrapper" class="login-register login-sidebar" style="background-image:url(assets/images/background/login-register.jpg);">
   <div class="login-box card">
       <div class="card-body">
-
-
+          <a href="#/login">login</a>
+          <button routerLink="/login">Ir a login</button>
           <form ngNativeValidate #f="ngForm" class="form-horizontal form-material" (ngSubmit)="ingresar( f )">
               <a href="javascript:void(0)" class="text-center db"><img src="assets/images/logo-icon.png" alt="Home" /><br/><img src="assets/images/logo-text.png" alt="Home" /></a>
               <div class="form-group m-t-40">
@@ -61,6 +61,7 @@
                       <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Reset</button>
                   </div>
               </div>
+
           </form>
       </div>
   </div>

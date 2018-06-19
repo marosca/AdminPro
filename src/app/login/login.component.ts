@@ -64,7 +64,6 @@ export class LoginComponent implements OnInit {
 
 
   ingresar(forma: NgForm) {
-    console.log('forma', forma);
     if (forma.invalid) { return; }
 
     let user: Usuario;
@@ -82,9 +81,7 @@ export class LoginComponent implements OnInit {
     this._usuarioService.login(user, forma.value.recuerdame)
       .subscribe(
         correcto => this.router.navigate(['/dashboard']),
-        error => swal('Usuario desconocido', 'Introduce correctamente tus datos', 'error')
-      );
-
+        error => swal('Usuario desconocido', error.error.mensaje , 'error'));
   }
 
 }
