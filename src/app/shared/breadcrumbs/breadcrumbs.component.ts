@@ -40,7 +40,6 @@ export class BreadcrumbsComponent implements OnInit {
   goToLogin() {
     this.router.navigate(['login'])
       .then(data => console.log('navegando', data));
-    console.log(this.router);
   }
 
 }

@@ -39,7 +39,6 @@ export class ProfileComponent implements OnInit {
       this.imagenAsubir = null;
       return;
     }
-    console.log(archivo.type);
     if (archivo.type.indexOf('image') < 0) {
       swal('Sólo imágenes', 'El archivo selecionado no es una imagen', 'error');
       this.imagenAsubir = null;
@@ -54,7 +53,6 @@ export class ProfileComponent implements OnInit {
   }
 
   cambiarImagen() {
-    this.imagenAsubir = this.imagenTemp;
     this._usuarioService.cambiarImagen(this.imagenAsubir, this.usuario._id);
   }
 

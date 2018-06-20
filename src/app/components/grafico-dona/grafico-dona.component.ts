@@ -13,7 +13,6 @@ export class GraficoDonaComponent implements OnInit {
 
     // events
     public chartClicked(e: any): void {
-      console.log(this);
       console.log(e);
     }
     public chartHovered(e: any): void {

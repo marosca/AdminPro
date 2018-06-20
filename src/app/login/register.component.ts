@@ -70,7 +70,6 @@ export class RegisterComponent implements OnInit {
 
     this._usuarioService.crearUsuario(usuario, true) //segundo parametro para decir si notifica en el front end la creacción correcta de usuario
       .subscribe(response => {
-        console.log(response);
         this.router.navigate(['/login']);
       },
         error => console.log(error)

@@ -12,5 +12,4 @@ export class Usuario {
     public _id?: string
   ) { }
 
-};
-
+}

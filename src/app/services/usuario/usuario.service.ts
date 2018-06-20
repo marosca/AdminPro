@@ -85,15 +85,21 @@ export class UsuarioService {
   }
 
   actualizarUsuario(usuario: Usuario) {
-    console.log('servicio', usuario);
     let url = URL_SERVICIOS + '/usuario/' + usuario._id;
     url += '?token=' + this.token;
-    console.log(url);
+
     return this.http.put(url, usuario)
       .map( (resp: any) => {
-        let userBD: Usuario = resp.usuario;
-        swal('Usuario modificado', userBD.email, 'success');
-        this.guardarStorage(userBD._id, this.token, userBD, null);
+        /* esta función se usa cuando un usuario actualiza sus propios datos
+        o cuando un administrador en la pagina de mantenimiento hace un cambio
+        de role a un usuario. ASí que primero vemos que si el usuario que se
+        está intentando modificar es el que está logueado tendreos que actualizar
+        los datos del localstorage */
+        if (usuario._id === this.usuario._id) {
+          let userBD: Usuario = resp.usuario;
+          this.guardarStorage(userBD._id, this.token, userBD, null);
+        }
+        swal('Usuario modificado', usuario.nombre, 'success');
       });
   }
 
@@ -109,6 +115,24 @@ export class UsuarioService {
         console.log(error);
         swal('Error al actualizar', error, 'error');
       });
+  }
+
+  cargarUsuarios(desde: number = 0) {
+    let url = URL_SERVICIOS + '/usuario?desde=' + desde;
+    return this.http.get(url);
+  }
+
+  buscarUsuario(text: string) {
+    let url = URL_SERVICIOS + '/busqueda/coleccion/usuarios/' + text;
+    return this.http.get(url)
+      .map( (resp:any) => {
+        return resp.usuarios;
+      });
+  }
+
+  borrarUsuario(usuario: Usuario) {
+    let url = URL_SERVICIOS + '/usuario/' + usuario._id + '?token=' + this.token;
+    return this.http.delete(url);
   }
 
 }
